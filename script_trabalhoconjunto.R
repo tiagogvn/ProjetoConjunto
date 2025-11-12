@@ -8,3 +8,11 @@ base %>%
   geom_boxplot(color = "black",
                fill = "yellow") +
   theme_classic()
+
+base$HIV=as.factor(base$HIV)
+ggplot(data=base,mapping=aes(x=HIV))+
+  geom_bar()+
+  geom_text(stat = "count", aes(label = after_stat(count)), vjust = -0.5, size=3) +
+  xlab("Possui HIV?")+
+  ylab("Frequência absoluta")+
+  theme_bw()
